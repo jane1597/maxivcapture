@@ -1,0 +1,32 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="MIT"
+
+[[mods]]
+modId="maxivcapture"
+version="1.0.0"
+displayName="Max IV Capture"
+description='''
+Every Pokemon you catch with a Poke Ball gets perfect (31) IVs in all stats.
+'''
+
+[[dependencies.maxivcapture]]
+modId="neoforge"
+type="required"
+versionRange="[21.1,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.maxivcapture]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1,1.22)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.maxivcapture]]
+modId="cobblemon"
+type="required"
+versionRange="[1.6,)"
+ordering="AFTER"
+side="BOTH"
