@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "maxivcapture",
+  "version": "1.1.15",
+  "name": "Max IV Capture",
+  "description": "Max IVs on capture, crop growth multiplier, guaranteed Pokemon drops.",
+  "authors": ["jane1597"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.maxivcapture.MaxIvCapture"]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*",
+    "cobblemon": "*"
+  }
+}

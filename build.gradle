@@ -1,13 +1,12 @@
 plugins {
-    id 'java'
-    id 'net.neoforged.moddev' version '2.0.78'
+    id 'fabric-loom' version '1.7-SNAPSHOT'
 }
 
-version = '1.0.0'
+version = '1.1.15'
 group = 'com.maxivcapture'
 
 base {
-    archivesName = 'maxivcaptureneo'
+    archivesName = 'maxivcapture'
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -18,12 +17,12 @@ repositories {
     mavenCentral()
 }
 
-neoForge {
-    version = project.neo_version
-}
-
 dependencies {
-    compileOnly "com.cobblemon:neoforge:${project.cobblemon_version}"
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+    modCompileOnly "com.cobblemon:fabric:${project.cobblemon_version}"
     compileOnly 'org.jetbrains.kotlin:kotlin-stdlib:2.0.21'
 }
 
@@ -34,19 +33,14 @@ sourceSets {
             srcDirs = ['.']
             include '*.java'
         }
+        resources {
+            srcDirs = ['.']
+            include 'fabric.mod.json'
+        }
     }
 }
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
-}
-
-jar {
-    manifest {
-        attributes('FMLModType': 'MOD')
-    }
-    from('.') {
-        include 'neoforge.mods.toml'
-        into 'META-INF'
-    }
+    options.release = 21
 }

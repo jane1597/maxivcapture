@@ -1,4 +1,4 @@
-name: Build NeoForge mod
+name: Build Fabric mod
 
 on:
   push:
@@ -21,9 +21,9 @@ jobs:
       - name: Check the jar
         run: |
           unzip -l build/libs/*.jar
-          unzip -l build/libs/*.jar | grep "META-INF/neoforge.mods.toml"
+          unzip -l build/libs/*.jar | grep "fabric.mod.json"
           unzip -l build/libs/*.jar | grep "com/maxivcapture/MaxIvCapture.class"
       - uses: actions/upload-artifact@v4
         with:
-          name: maxivcapture-neoforge-jar
+          name: maxivcapture-jar
           path: build/libs/*.jar
